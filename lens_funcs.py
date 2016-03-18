@@ -1,4 +1,5 @@
 import numpy as np
+import math
 
 #field of view from a width and focal length
 def fov(fl, w):
@@ -19,7 +20,7 @@ def pix_to_rayvec(pixnum, num_pix, pitch, ml_pitch, ml_f):
     slope = (x-ml_x)/ml_f
     return np.array([[ml_x],[slope]])
 
-def rayvec_to_pix(rayvec, imager_h, pitch=pix_pitch, ml_pitch=mla_pitch, ml_f=mla_f):
+def rayvec_to_pix(rayvec, imager_h, pitch, ml_pitch, ml_f):
     x, slope = rayvec.reshape(2)
     ml = round(x/ml_pitch)
     ml_x = ml*ml_pitch

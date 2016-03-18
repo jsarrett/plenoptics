@@ -1,5 +1,5 @@
 import numpy as np
-import lens_func as lf
+import lens_funcs as lf
 import math
 
 
@@ -20,9 +20,9 @@ mla_f = mla_fnum*mla_pitch
 mla_fov = lf.fov(mla_f, mla_pitch)
 
 def pix_to_rayvec(pixnum):
-    return lf.pix_to_rayvec(pixnum, num_pix, num_pix, pitch, ml_pitch, ml_f)
+    return lf.pix_to_rayvec(pixnum, num_pix, pix_pitch, mla_pitch, mla_f)
 def rayvec_to_pix(rayvec):
-    return lf.rayvec_to_pix(rayvec, imager_h, pitch, ml_pitch, ml_f)
+    return lf.rayvec_to_pix(rayvec, imager_h, pix_pitch, mla_pitch, mla_f)
 
 #focal length
 #range is 43-344mm (https://support.lytro.com/hc/en-us/articles/200863400-What-are-the-specs-on-the-First-Generation-Lytro-Light-Field-Camera-)
